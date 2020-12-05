@@ -50,7 +50,6 @@ def valid_passport_part2(passport):
             fields.remove(field)
         elif field == "ecl":
             fields.remove(field)
-        # Same
         elif field == "pid":
             fields.remove(field)
         else:
