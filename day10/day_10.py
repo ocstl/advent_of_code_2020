@@ -28,11 +28,10 @@ def main(_args):
     def ways(joltage):
         if joltage + 3 == built_in_joltage:
             return 1
-        elif joltage + 3 > built_in_joltage:
-            return 0
+        elif joltage == 0 or joltage in adapters:
+            return sum(ways(joltage + diff) for diff in range(1, 4))
         else:
-            # We can reach between 1 and 3 (inclusive) joltages higher.
-            return sum(ways(joltage + diff) for diff in range(1, 4) if joltage + diff in adapters)
+            return 0
 
     # Alternatively, we could use a dict or a defaultdict to build from the
     # largest adapters back to the smallest, then sum up the "reachable"
